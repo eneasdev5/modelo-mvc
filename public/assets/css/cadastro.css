@@ -1,0 +1,98 @@
+ .cx_main_form_cadastrar>h1 {
+     padding: 20px;
+     text-align: center;
+ }
+
+ #main_form_cadastrar {
+     width: 80%;
+     margin: 0px auto;
+     margin-bottom: 50px;
+ }
+
+ #main_form_cadastrar div input {
+     width: 100%;
+     height: 30px;
+     font-weight: 700;
+     font-size: 14pt;
+     margin: 0px 0 10px 0px;
+     border: 0;
+     background-color: #f1efce;
+     border-radius: 3px;
+     padding: 18px 0px 18px 8px;
+ }
+
+ .btn_submit_form_cad {
+     display: flex;
+     justify-content: end;
+ }
+
+ .btn_submit_form_cad button {
+     justify-self: end;
+     padding: 10px;
+     border: 0;
+     background-color: #d2691e;
+     border-radius: 8px;
+     font-weight: bold;
+ }
+
+ .btn_submit_form_cad button:hover {
+     background-color: #ff6a00;
+     color: aliceblue;
+     cursor: pointer;
+ }
+
+ /* pagina de editar usuario */
+
+ .cx_main_form_link_perfil {
+     padding: 20px;
+     text-align: center;
+     margin-bottom: 50px;
+ }
+
+ .cx_main_form_link_perfil a {
+     text-decoration: none;
+     color: #292601;
+     background-color: #817602;
+     padding: 20px;
+
+     font-weight: bold;
+     border-radius: 5px;
+ }
+
+ .cx_main_form_link_perfil a:hover {
+     color: #a2a1a1;
+     cursor: pointer;
+ }
+
+ .layoutTelefone {
+     display: flex;
+     margin: 10px 0 10px 0;
+     /* flex-direction: column; */
+     align-items: center;
+     justify-content: center;
+     flex-direction: row;
+ }
+
+
+ .layoutTelefone button {
+     border: 0;
+     border-radius: 5px;
+     background-color: gray;
+     width: 100px;
+     margin-left: 5px;
+     cursor: pointer;
+     color: #252525;
+     font-weight: bold;
+     font-size: 9pt;
+     padding: 3px;
+
+     border: 1px solid #313131;
+ }
+
+ .layoutTelefone button:hover {
+     text-decoration: underline;
+     color: #eeebeb;
+     text-shadow: 10px 2px 15px #dbd3d3;
+     transition-duration: 1s;
+     border-color: #a5a4a4;
+ }
