@@ -5,3 +5,5 @@ vendor/
 .htaccess
 .env
 gestor-usuario
+.idea
+.vscode
