@@ -1,5 +1,7 @@
 {
     "name": "eneassena/modelo_mvc",
+    "description": "Projeto de Modelo MVC",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Mvc\\": "src/"

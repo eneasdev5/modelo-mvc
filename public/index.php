@@ -18,7 +18,6 @@ $app->get('/user-perfil', UsersController::class . ':user_perfil');
 
 
 
-
 // errorMiddleware
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
