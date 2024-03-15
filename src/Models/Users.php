@@ -16,10 +16,10 @@ class Users
   public function __construct()
   {
     $this->connect = MysqlRepository::getConnect(
-      '************',
-      '************',
-      '************',
-      '************'
+      '127.0.0.1',
+      'root',
+      '',
+      'crud'
     );
     $this->success = false;
     $this->exception = null;
@@ -107,5 +107,15 @@ class Users
     $stmt->bindParam(":id", $userID);
     $stmt->execute();
     return  $stmt->fetch(\PDO::FETCH_ASSOC);
+  }
+
+  public function getUsersByJoins(int $userID)
+  {
+    $query = "SELECT u.id, u.nome,u.email, u.nickname, t.numero_telefone, e.cep, e.rua,e.numero, e.complemento, e.bairro, e.cidade, e.estado FROM usuarios u INNET JOIN telefones t ON t.usuario_id=u.id INNET JOIN enderecos e ON e.usuario_id=u.id WHERE u.id = 1;";
+    $stmt = $this->connect->prepare($query);
+    $stmt->bindParam(':id', $userID);
+    $stmt->execute();
+    $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    return $result;
   }
 }

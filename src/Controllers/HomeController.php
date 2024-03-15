@@ -6,7 +6,6 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Mvc\Controllers\Engine\EnginePlates;
 
-
 class HomeController
 {
   public function home(Request $request, Response $response)

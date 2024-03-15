@@ -25,10 +25,6 @@ class UsersController
 
   public function register_store(Request $request, Response $response)
   {
-    // var_dump(filter_var($_POST['cnNome'], FILTER_SANITIZE_SPECIAL_CHARS));
-    // var_dump(htmlspecialchars($_POST['cnNome']));
-
-
     // obter os dados do formulario
     $dadosForm = filter_var_array($_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -66,6 +62,38 @@ class UsersController
 
     $response->getBody()->write(
       EnginePlates::view('register', $data)
+    );
+
+    return $response;
+  }
+
+  public function visualizar(Request $request, Response $response)
+  {
+
+    $data['title'] = WEB_TITLE . " - Visualizar";
+    $user = new Users();
+    $data['usuarios'] = $user->All();
+
+    $response->getBody()->write(
+      EnginePlates::view('visualizar', $data)
+    );
+
+    return $response;
+  }
+  public function user_perfil(Request $request, Response $response, array $args)
+  {
+    $userId = (int) $_GET['id'];
+
+    /*
+      usuarios
+      telefones
+      enderecos
+
+      where id = $userId
+
+      */
+    $response->getBody()->write(
+      EnginePlates::view('meu_perfil')
     );
 
     return $response;
