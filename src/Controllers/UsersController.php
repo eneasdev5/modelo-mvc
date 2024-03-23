@@ -80,18 +80,14 @@ class UsersController
 
     return $response;
   }
+
+  /**
+   * @return Response $response
+   */
   public function user_perfil(Request $request, Response $response, array $args)
   {
     $userId = (int) $_GET['id'];
 
-    /*
-      usuarios
-      telefones
-      enderecos
-
-      where id = $userId
-
-      */
     $response->getBody()->write(
       EnginePlates::view('meu_perfil')
     );

@@ -111,7 +111,7 @@ class Users
 
   public function getUsersByJoins(int $userID)
   {
-    $query = "SELECT u.id, u.nome,u.email, u.nickname, t.numero_telefone, e.cep, e.rua,e.numero, e.complemento, e.bairro, e.cidade, e.estado FROM usuarios u INNET JOIN telefones t ON t.usuario_id=u.id INNET JOIN enderecos e ON e.usuario_id=u.id WHERE u.id = 1;";
+    $query = "SELECT u.id, u.nome,u.email, u.nickname, t.numero_telefone, e.cep, e.rua,e.numero, e.complemento, e.bairro, e.cidade, e.estado FROM usuarios u INNER JOIN telefones t ON t.usuario_id=u.id INNER JOIN enderecos e ON e.usuario_id=u.id WHERE u.id = 1;";
     $stmt = $this->connect->prepare($query);
     $stmt->bindParam(':id', $userID);
     $stmt->execute();

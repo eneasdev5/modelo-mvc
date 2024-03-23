@@ -17,7 +17,7 @@
         }
     ],
     "scripts": {
-        "start": "php -S 127.0.0.1:8003 -t public"
+        "start": "php -S 127.0.0.1:9000 -t public"
     },
     "require": {
         "slim/slim": "4.*",
