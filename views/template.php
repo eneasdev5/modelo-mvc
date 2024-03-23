@@ -38,9 +38,7 @@
             <p>Todos Direito reservados 2023</p>
         </footer>
 
-        <script>
-
-        </script>
+        <script src="assets/js/via_cep.js"></script>
     </main>
 
 </body>

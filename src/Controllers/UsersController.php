@@ -94,4 +94,17 @@ class UsersController
 
     return $response;
   }
+
+  public function login(Request $request, Response $response)
+  {
+    // obter os dados do POST - Formulario
+    // validar esses dados
+    // buscar no banco de dados na tabela de usuario pelo email do user
+    // usar a função do php para checar a hash da senha do usuario
+    // criar a sessão para esse usuario 
+    // redirecionar o usuario para o dashboad
+    // emitir uma mensagem de erro para o usuario
+
+    return $response;
+  }
 }
