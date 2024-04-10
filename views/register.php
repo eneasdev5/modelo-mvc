@@ -1,18 +1,15 @@
 <?php $this->layout('template', ['title' => $title]); ?>
 
-
 <!-- section body content -->
 <section class="section-body-content">
     <div class="cx_main_form_cadastrar">
         <h1>Cadastrar Um Novo Usuário</h1>
     </div>
-    <!-- <div class="message_error">
-                <h3>message </h3>
-            </div> -->
+
     <?php if (!empty($message)) : ?>
-        <div class="message_error">
-            <h3><?= $message ?></h3>
-        </div>
+    <div class="message_error">
+        <h3><?= $message ?></h3>
+    </div>
     <?php endif; ?>
 
     <form id="main_form_cadastrar" action="/register-users-store" method="post">

@@ -3,6 +3,7 @@
 namespace Mvc\Models;
 
 use PDOException;
+use League\Plates\Engine;
 
 /**
  *
@@ -24,7 +25,7 @@ class Users
     $this->success = false;
     $this->exception = null;
   }
-  /* 
+  /*
       array (size=12)
       'cnNome' => string '&#60;h1&#62;hacker&#60;/h1&#62;' (length=31)
       'cnEmail' => string '' (length=0)
@@ -37,10 +38,22 @@ class Users
       'cnBairro' => string '' (length=0)
       'cnCidade' => string '' (length=0)
       'cnEstado' => string '' (length=0)
-      'cnTelefone' => 
+      'cnTelefone' =>
         array (size=1)
           0 => string '' (length=0)
     */
+
+  public function getUserByCredencias(array $credencias)
+  {
+    $result = [];
+    $query = "SELECT * FROM usuarios WHERE nickname=:nick";
+    $stmt = $this->connect->prepare($query);
+    $stmt->bindParam(':nick', $credencias['nickname']);
+    $res =  $stmt->execute();
+    $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+    var_dump($result);
+  }
 
   public function insertUser(array $dadosForm)
   {

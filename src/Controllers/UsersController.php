@@ -7,6 +7,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Mvc\Models\Users;
 use Mvc\Controllers\Engine\EnginePlates;
 
+
 /**
  *
  */
@@ -30,7 +31,11 @@ class UsersController
 
     // validar o dados enviados
     if (in_array('', $dadosForm)) {
-      $response->getBody()->write('<p>dados invalidos para registrar usuário</p>');
+      $message = '<p>dados invalidos para registrar usuário</p>';
+
+      $response->getBody()->write(
+        EnginePlates::view('register', ['message' => $message])
+      );
       return $response;
     }
 
@@ -51,7 +56,10 @@ class UsersController
 
         $message = "<p>Usuario {$dadosForm['cnNickname']} já esta sendo usado!!!</p>";
       }
-      $response->getBody()->write($message);
+
+      $response->getBody()->write(
+        EnginePlates::view('register', ['message' => $message])
+      );
       return $response;
     }
 
@@ -97,14 +105,31 @@ class UsersController
 
   public function login(Request $request, Response $response)
   {
+    $parsedBody = $request->getParsedBody();
+    if ($parsedBody) {
+      if (!in_array('', $parsedBody)) {
+        $user = (new Users)->getUserByCredencias($parsedBody);
+
+        $response->getBody()
+          ->write(
+            json_encode([
+              'auth' => password_verify($parsedBody['password'], $user['senha'])
+            ])
+          );
+        return $response->withHeader('Content-Type', 'application/json');
+      }
+      $response->getBody()->write(json_encode(['auth' => false]));
+      return $response->withHeader('Content-Type', 'application/json');
+    }
+    $response->getBody()->write(json_encode(['error' => true]));
     // obter os dados do POST - Formulario
     // validar esses dados
     // buscar no banco de dados na tabela de usuario pelo email do user
     // usar a função do php para checar a hash da senha do usuario
-    // criar a sessão para esse usuario 
+    // criar a sessão para esse usuario
     // redirecionar o usuario para o dashboad
     // emitir uma mensagem de erro para o usuario
 
-    return $response;
+    return $response->withHeader('Content-Type', 'application/json');
   }
 }
